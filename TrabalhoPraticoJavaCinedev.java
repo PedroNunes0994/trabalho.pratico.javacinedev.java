@@ -68,6 +68,55 @@ public class TrabalhoPraticoJavaCinedev {
                         }
                     }
                     break;
-;
+
+                case 3:
+
+                    int fileiraCancelar = scanner.nextInt();
+
+                    System.out.print("Digite o número da coluna (1-20) para cancelar: ");
+                    int colunaCancelar = scanner.nextInt();
+
+                    if (fileiraCancelar < 1 || fileiraCancelar > 10 || colunaCancelar < 1 || colunaCancelar > 20) {
+                        System.out.println("Assento inválido.");
+                    } else if (assento[fileiraCancelar - 1][colunaCancelar - 1].equals("L")) {
+                        System.out.println("Assento já está livre.");
+                    } else {
+                        assento[fileiraCancelar - 1][colunaCancelar - 1] = "L";
+                        System.out.println("Compra cancelada com sucesso.");
+                    }
+                    break;
+                case 4:
+                int totalAssentos = assento.length * assento[0].length;
+                int ocupados = 0;
+
+               for (int i = 0; i < assento.length; i++) {
+               for (int j = 0; j < assento[i].length; j++) {
+               if (assento[i][j].equals("X")) {
+               ocupados++;
+            }
+        }
+    }
+
+               int livres = totalAssentos - ocupados;
+               double percentual = ((double) ocupados / totalAssentos) * 100;
+
+                System.out.println("\n🔹 Relatório de Ocupação da Sala 🔹");
+                System.out.println("Total de assentos: " + totalAssentos);
+                 System.out.println("Assentos ocupados: " + ocupados);
+                 System.out.println("Assentos livres: " + livres);
+                 System.out.printf("Percentual de ocupação: %.2f%%\n", percentual);
+                break;
+                
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+
+        } while (opcao != 0);
+
+        scanner.close();
     }
 }
