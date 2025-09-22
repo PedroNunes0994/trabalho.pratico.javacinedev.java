@@ -27,7 +27,7 @@ public class TrabalhoPraticoJavaCinedev {
             switch (opcao) {
                 case 1:
 
-                    System.out.print("Coluna:      ");
+                    System.out.print("Coluna:     ");
                     for (int j = 0; j < assento[0].length; j++) {
                         System.out.printf("%3d ", (j + 1));
                     }
